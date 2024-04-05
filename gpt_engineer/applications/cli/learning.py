@@ -209,29 +209,7 @@ def ask_collection_consent() -> bool:
     bool
         True if the user consents, False otherwise.
     """
-    answer = input(
-        "Is it ok if we store your prompts to help improve GPT Engineer? (y/n)"
-    )
-    while answer.lower() not in ("y", "n"):
-        answer = input("Invalid input. Please enter y or n: ")
-
-    if answer.lower() == "y":
-        path = Path(".gpte_consent")
-        path.write_text("true")
-        print(colored("Thank you️", "light_green"))
-        print()
-        print(
-            "(If you no longer wish to participate in data collection, delete the file .gpte_consent)"
-        )
-        return True
-    else:
-        print(
-            colored(
-                "No worries! GPT Engineer will not collect your prompts. ❤️",
-                "light_green",
-            )
-        )
-        return False
+    return False
 
 
 def extract_learning(
